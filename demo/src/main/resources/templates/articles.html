@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>자유게시판</title>
+</head>
+<body>
+<h1>자유게시판</h1>
+<div th:each="article : ${articles}">
+    <div>
+        <span th:text="${article.title}"></span>
+    </div>
+    <div>
+        <span th:text="${article.writeDate}"></span>
+    </div>
+    <div>
+        <span th:text="${article.content}"></span>
+    </div>
+    <hr>
+</div>
+</body>
+</html>
