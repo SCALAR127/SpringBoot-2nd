@@ -47,7 +47,7 @@ public class ArticleController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Article> updateArticle(@PathVariable int id, @RequestBody Article article){
-        Article updateArticle = articleService.update(id, article);
+        Article updateArticle = articleService.updateId(id, article);
         if (updateArticle == null){
             return ResponseEntity.notFound().build();
         }
