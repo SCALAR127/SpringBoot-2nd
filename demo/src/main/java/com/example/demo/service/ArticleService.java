@@ -17,6 +17,8 @@ public class ArticleService {
         this.articleRepositoryInterface = articleRepositoryInterface;
     }
 
+
+
     public Collection<Article> findBoardId(Long boardId) {
         return articleRepositoryInterface.findBoardId(boardId);
 

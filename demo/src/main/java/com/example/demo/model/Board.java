@@ -12,6 +12,10 @@ public class Board {
         this.boardName = boardName;
     }
 
+    public Board(String boardName) {
+        this.boardName = boardName;
+    }
+
     public int getBoardId() {
         return id;
     }

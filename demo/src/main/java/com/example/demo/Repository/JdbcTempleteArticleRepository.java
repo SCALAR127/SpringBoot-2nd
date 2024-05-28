@@ -1,6 +1,7 @@
 package com.example.demo.Repository;
 
 import com.example.demo.model.Article;
+import com.example.demo.model.Board;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -24,13 +25,17 @@ public class JdbcTempleteArticleRepository implements ArticleRepositoryInterface
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
+
+
     @Override
+    @Transactional(readOnly = true)
     public Collection<Article> findBoardId(Long boardId) {
         List<Article> result = jdbcTemplate.query("select * from article where board_id = ?", articleRowMapper(),boardId);
         return result;
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Article> findAll() {
         return jdbcTemplate.query("select * from article", articleRowMapper());
     }
@@ -55,6 +60,7 @@ public class JdbcTempleteArticleRepository implements ArticleRepositoryInterface
 
 
     @Override
+    @Transactional(readOnly = true)
     public Optional<Article> findById(Long id) {
         List<Article> result = jdbcTemplate.query("select * from article where id = ?", articleRowMapper(), Long.valueOf(id));
         return result.stream().findAny();
@@ -74,7 +80,7 @@ public class JdbcTempleteArticleRepository implements ArticleRepositoryInterface
                 article.getModifyDate(),
                 id
         );
-
+        article.setId(id);
         return article;
     }
 
@@ -98,4 +104,10 @@ public class JdbcTempleteArticleRepository implements ArticleRepositoryInterface
                 rs.getTimestamp("modified_date").toLocalDateTime()
         );
     }
+    private RowMapper<Board> boardNameRowMapper() {
+        return (rs2, rowNum2) -> new Board(
+                rs2.getString("boardName")
+        );
+    }
+
 }

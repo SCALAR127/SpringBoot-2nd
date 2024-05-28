@@ -9,6 +9,7 @@ import java.util.Optional;
 public interface ArticleRepositoryInterface {
     Collection<Article> findBoardId(Long boardId);
 
+
     List<Article> findAll();
     Article save(Article article);
 
