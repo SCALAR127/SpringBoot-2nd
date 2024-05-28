@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class Introduce {
 
-    @GetMapping("/introduceTT" )
-    public String into(){
+    @GetMapping("/introduceTT")
+    public String into() {
         return "introduce";
     }
 

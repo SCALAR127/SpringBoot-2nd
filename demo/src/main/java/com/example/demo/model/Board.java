@@ -4,26 +4,27 @@ public class Board {
     private int id;
     private String boardName;
 
-    public Board(){}
+    public Board() {
+    }
 
-    public Board(int id, String boardName){
+    public Board(int id, String boardName) {
         this.id = id;
         this.boardName = boardName;
     }
 
-    public int getId(){
+    public int getBoardId() {
         return id;
     }
 
-    public void setId(int id){
+    public void setBoardId(int id) {
         this.id = id;
     }
 
-    public String getBoardName(){
+    public String getBoardName() {
         return boardName;
     }
 
-    public void setBoardName(){
+    public void setBoardName() {
         this.boardName = boardName;
     }
 }

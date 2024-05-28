@@ -7,43 +7,45 @@ public class Member {
     private String password;
 
 
+    public Member() {
+    }
 
-    public Member(){}
-
-    public Member(int id, String name, String emailAddress, String password){
+    public Member(int id, String name, String emailAddress, String password) {
         this.id = id;
         this.name = name;
         this.emailAddress = emailAddress;
         this.password = password;
     }
 
-    public int getId(){
+    public int getId() {
         return id;
     }
-    public void setId(int id){
+
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
-    public void setName(String name){
+
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getEmailAddress(){
+    public String getEmailAddress() {
         return emailAddress;
     }
 
-    public void setEmailAddress(String emailAddress){
+    public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
 
-    public String getPassword(){
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password){
+    public void setPassword(String password) {
         this.password = password;
     }
 }

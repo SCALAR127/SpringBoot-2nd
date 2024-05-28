@@ -6,16 +6,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/posts")
 public class ArticlesController {
     @Autowired
     private ArticleService articleService;
 
-    @GetMapping
-    public String viewArticles(Model model){
-        model.addAttribute("articles", articleService.findAll());
+    @GetMapping("/posts")
+    public String viewArticles(Model model, @RequestParam Long boardId) {
+        model.addAttribute("articles", articleService.findBoardId(boardId));
         return "articles";
     }
 }

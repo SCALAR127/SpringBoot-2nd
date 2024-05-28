@@ -1,28 +1,33 @@
-package com.example.demo.Repository;
+/*
+ackage com.example.demo.Repository;
 
 import com.example.demo.model.Article;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Repository
-public class ArticleRepository{
+public class ArticleRepository implements ArticleRepositoryInterface{
     private final Map<Integer, Article> articleMap = new HashMap<>();
     private int nextId = 1;
 
-
-    public Collection<Article> findAll(){
+    @Override
+    public Collection<Article> findBoardId(Long boardId) {
         return articleMap.values();
     }
 
-    public Article find(int id){
-        return articleMap.get(id);
+    @Override
+    public List<Article> findAll() {
+        return null;
     }
 
-    public Article save(Article article){
+    @Override
+    public Article find(Long id) {
+        return articleMap.get(id);
+    }
+    @Override
+    public Article save(Article article) {
         article.setId(nextId++);
         article.setWriteDate(LocalDateTime.now());
         article.setModifyDate(LocalDateTime.now());
@@ -30,19 +35,34 @@ public class ArticleRepository{
         return article;
     }
 
-    public Article update(int id, Article article){
-        if(!articleMap.containsKey(id)){
-            return null;
-        }
+    @Override
+    public Optional<Article> findById(Long id) {
+        return Optional.empty();
+    }
+
+    @Override
+    public Article update(Long id, Article article) {
+        return null;
+    }
+
+    @Override
+    public boolean delete(Long id) {
+        return false;
+    }
+
+    @Override
+    public Article update(Long id, Article article) {
         article.setId(id);
         article.setModifyDate(LocalDateTime.now());
         articleMap.put(id, article);
         return article;
     }
 
-    public boolean delete(int id){
+    public boolean delete(Long id) {
         return articleMap.remove(id) != null;
     }
 
 
 }
+
+ */
